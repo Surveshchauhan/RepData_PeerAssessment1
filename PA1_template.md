@@ -16,7 +16,7 @@ mydatanew<-na.omit(mydata)
 
 ```r
 tsteps <- aggregate(steps ~ date, mydatanew, sum)
-hist(tsteps$steps , main = "Total steps by day", xlab = "steps", col = "red")
+hist(tsteps$steps , main = "Total number of steps for day", xlab = "sum of steps", col = "green")
 ```
 
 ![](./PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
@@ -48,7 +48,7 @@ print(sprintf("Median of steps per day: %f ", tstepsDayMedian))
 timeseriesplot <- tapply(mydatanew$steps, mydatanew$interval, mean)
 
 plot(row.names(timeseriesplot), timeseriesplot, type = "l", xlab = "5-min interval", 
-     ylab = "Average across all Days", main = "Average number of steps taken", 
+     ylab = "Average (all Days)", main = "Avg number of steps taken", 
      col = "blue")
 ```
 
@@ -103,7 +103,7 @@ sum(is.na(mydataimputed))
 
 ```r
 tstepsnew <- aggregate(steps ~ date, mydataimputed, sum,na.rm=TRUE)
-hist(tstepsnew$steps , main = "Total steps by day", xlab = "steps", col = "red")
+hist(tstepsnew$steps , main = "Total steps by day", xlab = "steps", col = "green")
 ```
 
 ![](./PA1_template_files/figure-html/unnamed-chunk-9-1.png) 

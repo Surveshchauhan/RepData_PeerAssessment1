@@ -20,7 +20,7 @@ mydatanew<-na.omit(mydata)
 ### 1. Make a histogram of the total number of steps taken each day
 ```{r}
 tsteps <- aggregate(steps ~ date, mydatanew, sum)
-hist(tsteps$steps , main = "Total steps by day", xlab = "steps", col = "red")
+hist(tsteps$steps , main = "Total number of steps for day", xlab = "sum of steps", col = "green")
 ```
 
 ### 2. Calculate and report the mean and median total number of steps taken per day
@@ -37,7 +37,7 @@ print(sprintf("Median of steps per day: %f ", tstepsDayMedian))
 timeseriesplot <- tapply(mydatanew$steps, mydatanew$interval, mean)
 
 plot(row.names(timeseriesplot), timeseriesplot, type = "l", xlab = "5-min interval", 
-     ylab = "Average across all Days", main = "Average number of steps taken", 
+     ylab = "Average (all Days)", main = "Avg number of steps taken", 
      col = "blue")
 ```
 
@@ -74,7 +74,7 @@ sum(is.na(mydataimputed))
 ### 4. Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 ```{r}
 tstepsnew <- aggregate(steps ~ date, mydataimputed, sum,na.rm=TRUE)
-hist(tstepsnew$steps , main = "Total steps by day", xlab = "steps", col = "red")
+hist(tstepsnew$steps , main = "Total steps by day", xlab = "steps", col = "green")
 tstepsDayMeannew <- mean(tstepsnew$steps)
 print(sprintf("Mean of steps per day: %f ", tstepsDayMeannew))
 tstepsDayMediannew <- median(tstepsnew$steps)
